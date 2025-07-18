@@ -21,10 +21,12 @@
   </div>
 
   <div class="text-center">
-    <% if task.overdue? %>
-      <p class="overdue_mark">期限切れです！</p>
-    <% else %>
-      <p class="ongoing_mark"><%= days_to_deadline_as_string task %></p>
+    <% unless task.completed? %>  
+      <% if task.overdue? %>
+        <p class="overdue_mark">期限切れです！</p>
+      <% else %>
+        <p class="ongoing_mark"><%= days_to_deadline_as_string task %></p>
+      <% end %>
     <% end %>
   </div>
 
